@@ -1,15 +1,19 @@
 const express = require("express");
-const app = express();
+const morgan = require("morgan");
 const cors = require("cors");
-const CandidateModel = require("./models/Candidate.model");
+const bodyParser = require("body-parser");
+
 const VoteModel = require("./models/Vote.model");
 const DB = require("./DB/candidate.DB");
+
+const app = express();
 
 require("dotenv").config();
 require("./config/db.config")();
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(morgan("dev"));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(cors());
 
 app.get("/", (req, res) => {
