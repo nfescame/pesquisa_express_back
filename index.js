@@ -22,23 +22,12 @@ app.get("/vote", async (req, res) => {
   res.status(200).json(vote);
 });
 
-app.post("/candidate", async (req, res, next) => {
-  try {
-    const result = await CandidateModel.create({
-      ...req.body,
-    });
-
-    return res.status(201).json(result);
-  } catch (err) {
-    return next(err);
-  }
-});
-
 app.post("/vote", async (req, res, next) => {
   try {
     const result = await VoteModel.create({
       ...req.body,
     });
+
     return res.status(201).json(result);
   } catch (err) {
     return next(err);
