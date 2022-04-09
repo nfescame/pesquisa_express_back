@@ -11,7 +11,6 @@ const app = express();
 require("dotenv").config();
 require("../config/db.config")();
 
-app.use(morgan("dev"));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
