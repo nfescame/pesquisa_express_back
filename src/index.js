@@ -3,13 +3,13 @@ const morgan = require("morgan");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
-const VoteModel = require("./models/Vote.model");
-const DB = require("./DB/candidate.DB");
+const VoteModel = require("../models/Vote.model");
+const DB = require("../DB/candidate.DB");
 
 const app = express();
 
 require("dotenv").config();
-require("./config/db.config")();
+require("../config/db.config")();
 
 app.use(morgan("dev"));
 app.use(express.json());
