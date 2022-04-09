@@ -13,7 +13,7 @@ require("../config/db.config")();
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors({ origin: process.env.REACT_APP_URL }));
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.status(200).json(DB);
