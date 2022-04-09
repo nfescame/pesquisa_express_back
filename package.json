@@ -1,36 +1,31 @@
 {
-  "name": "back_eleicao",
+  "name": "back",
   "version": "1.0.0",
   "description": "",
-  "engines": {
-    "node": "16.6.0",
-    "npm": "8.3.0"
-  },
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./index.js",
-    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd client && npm install && npm run build"
+    "start": "node index.js",
+    "dev": "nodemon ."
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nfescame/pesquisa_express_back.git"
-  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.0",
+    "bcrypt": "^5.0.0",
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.23.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.0",
-    "express": "^4.17.3",
-    "mongoose": "^6.2.9",
-    "morgan": "^1.10.0",
-    "nodemon": "^2.0.15"
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-jwt": "^6.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.3",
+    "multer": "^1.4.2",
+    "multer-storage-cloudinary": "^4.0.0"
   },
-  "bugs": {
-    "url": "https://github.com/nfescame/pesquisa_express_back/issues"
-  },
-  "homepage": "https://github.com/nfescame/pesquisa_express_back#readme"
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
 }
 
