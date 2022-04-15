@@ -25,48 +25,27 @@ app.get("/vote", async (req, res) => {
   res.status(200).json(votes);
 });
 
-app.get("/ipv4", async (req, res) => {
+app.get("/data", async (req, res) => {
   const votes = await VoteModel.find();
-
-  const ipv4 = votes.map((vote) => {
-    let i = vote.ip[0].IPv4;
-    let candidate = vote.candidate;
-    return { i, candidate };
-  });
-  res.status(200).json(ipv4);
-});
-
-app.get("/country", async (req, res) => {
-  const votes = await VoteModel.find();
-
   const country = votes.map((vote) => {
     let country_name = vote.ip[0].country_name;
     let candidate = vote.candidate;
     return { country_name, candidate };
   });
-  res.status(200).json(country);
-});
 
-app.get("/city", async (req, res) => {
-  const votes = await VoteModel.find();
-
-  const city = votes.map((vote) => {
-    let city = vote.ip[0].city;
-    let candidate = vote.candidate;
-    return { city, candidate };
-  });
-  res.status(200).json(city);
-});
-
-app.get("/state", async (req, res) => {
-  const votes = await VoteModel.find();
-
-  const state = votes.map((vote) => {
+  const state = await votes.map((vote) => {
     let state_name = vote.ip[0].state;
     let candidate = vote.candidate;
     return { state_name, candidate };
   });
-  res.status(200).json(state);
+
+  const city = await votes.map((vote) => {
+    let city = vote.ip[0].city;
+    let candidate = vote.candidate;
+    return { city, candidate };
+  });
+
+  res.status(200).json({ city, state, country });
 });
 
 app.post("/vote", async (req, res, next) => {
